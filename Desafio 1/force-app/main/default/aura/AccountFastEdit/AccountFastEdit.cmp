@@ -1,0 +1,62 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:lightningQuickActionWithoutHeader" controller="AuraAccountController" >
+    <aura:attribute name="recordId" type="String"/>
+    
+    <aura:attribute name="name" type="String"/>
+    <aura:attribute name="accountNumber" type="String"/>
+    <aura:attribute name="type" type="Object"/>
+    
+    <aura:attribute name="loaded" type="Boolean" default="true" />
+    
+    <div class="slds-page-header">
+        <p class="slds-text-heading--label">Edição Rápida de Dados</p>
+    </div>
+    
+    <aura:import library="lightning:alert" property="LightningAlert" />
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <div style="padding-left: 20px; padding-right: 20px" >
+        <br/>
+        <lightning:input type="text" name="name" label="Name" required="true" value="{!v.name}" />
+        <br/>
+        <lightning:input type="text" name="accountNumber" label="Account Number" value="{!v.accountNumber}" />
+        <br/>
+        <lightning:select name="type" label="Type" value="{!v.type}">
+            <option value="">Selecione um tipo</option>
+            <option value="CPF">CPF</option>
+            <option value="CNPJ">CNPJ</option>
+        </lightning:select>
+        <br/>
+        
+        <div class="loading">
+            <aura:if isTrue="{! v.loaded }">
+                <aura:set attribute="else">
+                    <lightning:spinner alternativeText="Loading" />
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>
+    
+    <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <lightning:button variant="brand" label="Salvar" disabled="{!loaded}" title="Salvar" onclick="{! c.salvar }"/>
+        <lightning:button variant="neutral" label="Cancelar" title="Cancelar" onclick="{! c.fecharPopup }"/>
+        
+    </div>
+    
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+        .paddingLeve {
+        
+        }
+    </aura:html>
+</aura:component>

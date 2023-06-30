@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>AuraAccountController</members>
+        <members>BatchContasInativas</members>
+        <members>TestTriggerAccountHandler</members>
+        <members>TriggerAccountHandler</members>
+        <members>Utils</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>TriggerAccount</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>AccountFastEdit</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>Account.Fast_Edit</members>
+        <name>QuickAction</name>
+    </types>
+    <version>57.0</version>
+</Package>
